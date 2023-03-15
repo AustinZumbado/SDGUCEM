@@ -19,6 +19,7 @@ switch ($accion) {
         } else {
             header('location:../index.php');
         }
+        break;
     case 2:
         if ($_SESSION['vsTipo'] == 'Estudiante') {
             $consulta = $Usuarios->ConsultarGanadasEstudiante($cnn, $_SESSION['vsCedula']);
@@ -28,7 +29,7 @@ switch ($accion) {
         } else {
             header('location:../index.php');
         }
-
+        break;
     case 3:
         if ($_SESSION['vsTipo'] == 'Estudiante') {
             $consulta = $Usuarios->ConsultarPendientesEstudiante($cnn, $_SESSION['vsCedula']);
@@ -38,5 +39,6 @@ switch ($accion) {
         } else {
             header('location:../index.php');
         }
+        break;
 }
 ?>

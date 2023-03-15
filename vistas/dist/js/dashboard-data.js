@@ -102,25 +102,25 @@ $(document).ready(function() {
 });
 
 /*****E-Charts function start*****/
-var echartsConfig =async function() { 
-	if( $('#e_chart_1').length > 0 ){
+var echartsConfig = function() { 
+	if ($('#e_chart_1').length > 0) {
 		var eChart_1 = echarts.init(document.getElementById('e_chart_1'));
 		var option = {
 			tooltip: {
 				show: true,
 				backgroundColor: '#fff',
-				borderRadius:6,
-				padding:7,
-				axisPointer:{
-					lineStyle:{
-						width:0,
+				borderRadius: 6,
+				padding: 7,
+				axisPointer: {
+					lineStyle: {
+						width: 0,
 					}
 				},
 				textStyle: {
 					color: '#00b894',
 					fontFamily: '"Poppins", sans-serif',
 					fontSize: 16
-				}	
+				}
 			},
 			series: [
 				{
@@ -133,9 +133,9 @@ var echartsConfig =async function() {
 						}
 					},
 					color: ['#0984e3', '#b2bec3'],
-					data:[
-						{value:37, name:''},
-						{value:2, name:''},
+					data: [
+						{ value: 37, name: '' },
+						{ value: 2, name: '' },
 					]
 				}
 			]
@@ -143,7 +143,6 @@ var echartsConfig =async function() {
 		eChart_1.setOption(option);
 		eChart_1.resize();
 	}
-	
 	if( $('#e_chart_3').length > 0 ){
 		var eChart_3 = echarts.init(document.getElementById('e_chart_3'));
 		var option2 = {
@@ -414,18 +413,15 @@ var sparklineLogin = function() {
 		});
 	}
 }
-sparklineLogin();
+/*****E-Charts function end*****/
 
 /*****Resize function start*****/
 var sparkResize,echartResize;
 $(window).on("resize", function () {
-	/*Sparkline Resize*/
-	clearTimeout(sparkResize);
-	sparkResize = setTimeout(sparklineLogin, 200);
-	
 	/*E-Chart Resize*/
 	clearTimeout(echartResize);
 	echartResize = setTimeout(echartsConfig, 200);
+
 }).resize(); 
 /*****Resize function end*****/
 

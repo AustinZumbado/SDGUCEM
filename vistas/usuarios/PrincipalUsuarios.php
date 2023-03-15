@@ -1,6 +1,6 @@
 <?php
 session_start();
-require '../../modelos/mConteosInterfaces.php';
+require ('../../modelos/mConteosInterfaces.php');
 // NO PERMITIR ACCESO NO LOGUEADO
 if (!isset($_GET['acc'])) {
     header('location:../../controlador/ControlLogin.php?acc=1');
@@ -12,6 +12,8 @@ if (!isset($_SESSION['vsCodigo'])) {
 if ($_SESSION['vsTipo'] == "Administrativo") {
     header('location:../../vistas/AdministracionAdmin.php?acc=1');
 }
+$MateriasGanadas = NumeroCursosGanadasEstudiante($cnn4, $_SESSION['vsCedula']);
+$MateriasPendientes = NumeroCursosPendientesEstudiante($cnn3, $_SESSION['vsCedula']);
 ?>
 <!DOCTYPE html>
 <html lang="ES-SV">
@@ -45,12 +47,12 @@ if ($_SESSION['vsTipo'] == "Administrativo") {
     <link href="../../vistas/vendors/vectormap/jquery-jvectormap-2.0.3.css" rel="stylesheet" type="text/css" />
     <link href="../../vistas/vendors/apexcharts/dist/apexcharts.css" rel="stylesheet" type="text/css" />
     <!-- Toggles CSS -->
-    <link href="../../vistas/vendors/jquery-toggles/css/toggles.css" rel="stylesheet" type="text/css">
-    <link href="../../vistas/vendors/jquery-toggles/css/themes/toggles-light.css" rel="stylesheet" type="text/css">
+    <link href="../../vistas/vendors/jquery-toggles/css/toggles.css" rel="stylesheet" type="text/css" />
+    <link href="../../vistas/vendors/jquery-toggles/css/themes/toggles-light.css" rel="stylesheet" type="text/css" />
     <!-- Toastr CSS -->
-    <link href="../../vistas/vendors/jquery-toast-plugin/dist/jquery.toast.min.css" rel="stylesheet" type="text/css">
+    <link href="../../vistas/vendors/jquery-toast-plugin/dist/jquery.toast.min.css" rel="stylesheet" type="text/css" />
     <!-- Custom CSS -->
-    <link href="../../vistas/dist/css/style.css" rel="stylesheet" type="text/css">
+    <link href="../../vistas/dist/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -59,7 +61,6 @@ if ($_SESSION['vsTipo'] == "Administrativo") {
         <div class="loader-pendulums"></div>
     </div>
      -->
-    <!--/Preloader -->
     <!-- HK Wrapper -->
     <div class="hk-wrapper hk-vertical-nav">
         <!-- Top Navbar -->
@@ -67,7 +68,7 @@ if ($_SESSION['vsTipo'] == "Administrativo") {
             <a id="navbar_toggle_btn" class="navbar-toggle-btn nav-link-hover" href="javascript:void(0);"><span
                     class="feather-icon"><i data-feather="menu"></i></span></a>
             <a class="navbar-brand font-weight-700" href="../usuarios/PrincipalUsuarios.php?acc=1">
-                UCEM
+            <img src="..\dist\img\logoUCEM1.png" width="80" height="60" class="d-inline-block align-top" alt="">
             </a>
             <ul class="navbar-nav hk-navbar-content">
                 <!-- BUSCADOR 
@@ -347,8 +348,7 @@ if ($_SESSION['vsTipo'] == "Administrativo") {
                                                 </div>
                                                 <div>
                                                     <span class="d-block display-5 text-dark mb-5">
-                                                        <?php $MateriasPendientes = NumeroCursosPendientesEstudiante($cnn3, $_SESSION['vsCedula']); 
-                                                        echo $MateriasPendientes; ?>
+                                                        <?php echo $MateriasPendientes; ?>
                                                     </span>
                                                 </div>
                                             </div>
@@ -365,8 +365,7 @@ if ($_SESSION['vsTipo'] == "Administrativo") {
                                                 </div>
                                                 <div>
                                                     <span class="d-block display-5 text-dark mb-5">
-                                                        <?php $MateriasGanadas = NumeroCursosGanadasEstudiante($cnn4, $_SESSION['vsCedula']);
-                                                        echo $MateriasGanadas; ?>
+                                                        <?php echo $MateriasGanadas; ?>
                                                     </span>
                                                 </div>
                                             </div>
@@ -382,25 +381,17 @@ if ($_SESSION['vsTipo'] == "Administrativo") {
                             <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h6 class="hk-sec-title">Carrera</h6>
-                                        <div class="hk-legend-wrap mb-10">
-                                            <div class="hk-legend">
-                                                <span
-                                                    class="d-10 bg-info rounded-circle d-inline-block"></span><span>Ganadas</span>
-                                            </div>
-                                            <div class="hk-legend">
-                                                <span
-                                                    class="d-10 bg-grey-light-1  rounded-circle d-inline-block"></span><span>Pendientes</span>
-                                            </div>
-                                        </div>
-                                        <div id="e_chart_1" class="echart" style="height:200px;"></div>
+                                        <h6 class="hk-sec-title mb-5">Carrera</h6>
                                         <div class="row mt-20">
                                             <div class="col-4">
                                                 <span class="d-block text-capitalize mb-5">Periodo:</span>
-                                                <span class="d-block font-weight-600 font-13"><?php echo date('Y');?></span>
+                                                <span class="d-block font-weight-600 font-13">
+                                                    <?php echo date('Y') ?>
+                                                </span>
                                             </div>
                                             <div class="col-4">
-                                                <span class="d-block text-capitalize mb-5">Porcentaje de la Carrera
+                                                <span class="d-block text-capitalize mb-5">Porcentaje restante de la
+                                                    carrera
                                                     (%)</span>
                                                 <span class="d-block font-weight-600 font-13">+
                                                     <?php
@@ -409,11 +400,10 @@ if ($_SESSION['vsTipo'] == "Administrativo") {
                                                     // MES ACTUAL
                                                     define('MateriasPendientes', $MateriasPendientes);
                                                     // SUMATORIA DE CASOS REGISTRADOS
-                                                    $Total = MateriasGanadas - MateriasPendientes;
+                                                    $Total = MateriasGanadas + MateriasPendientes;
                                                     // CALCULO DE PORCENTAJE FINAL
                                                     $CalculoPorcentajes = (MateriasPendientes * 100) / $Total;
-                                                    $PorcentajeCarrera = 100-$CalculoPorcentajes;
-                                                    echo round($PorcentajeCarrera, 2) ?> %
+                                                    echo round($CalculoPorcentajes, 2) ?> %
                                                 </span>
                                             </div>
                                             <div class="col-4">
@@ -433,21 +423,11 @@ if ($_SESSION['vsTipo'] == "Administrativo") {
             </div>
             <!-- /Container -->
             <!-- Footer -->
-            <div class="hk-footer-wrap container">
-                <footer class="footer">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-12">
-                            <p>&copy; Copyright 2020 | CRM VTiger S.A de C.V</p>
-                        </div>
-                    </div>
-                </footer>
-            </div>
             <!-- /Footer -->
         </div>
         <!-- /Main Content -->
     </div>
     <!-- /HK Wrapper -->
-
     <!-- jQuery -->
     <script src="../../vistas/vendors/jquery/dist/jquery.min.js"></script>
 
@@ -496,8 +476,6 @@ if ($_SESSION['vsTipo'] == "Administrativo") {
 
     <!-- Init JavaScript -->
     <script src="../../vistas/dist/js/init.js"></script>
-    <script src="../../vistas/dist/js/dashboard-data.js"></script>
-
 </body>
 
 </html>

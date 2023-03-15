@@ -64,8 +64,8 @@ if ($_SESSION['vsTipo'] == "Administrativo") {
         <nav class="navbar navbar-expand-xl navbar-light fixed-top hk-navbar shadow-lg shadow-hover-xl">
             <a id="navbar_toggle_btn" class="navbar-toggle-btn nav-link-hover" href="javascript:void(0);"><span
                     class="feather-icon"><i data-feather="menu"></i></span></a>
-            <a class="navbar-brand font-weight-700" href="../vistas/AdministracionAdmin.php?acc=1">
-                UCEM
+            <a class="navbar-brand font-weight-700" href="../vistas/usuarios/PrincipalUsuarios.php?acc=1">
+                <img src="../vistas/dist/img/logoUCEM1.png" width="80" height="60" class="d-inline-block align-top" alt="">
             </a>
             <ul class="navbar-nav hk-navbar-content">
                 <!-- BUSCADOR 
@@ -155,8 +155,9 @@ if ($_SESSION['vsTipo'] == "Administrativo") {
                                                 Matriculadas</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="../controlador/cMateriasEstudiantes.php?acc=2">Materias
-                                            Ganadas</a>
+                                            <a class="nav-link"
+                                                href="../controlador/cMateriasEstudiantes.php?acc=2">Materias
+                                                Ganadas</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link"
@@ -395,4 +396,5 @@ if ($_SESSION['vsTipo'] == "Administrativo") {
     <script src="../vistas/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
     <script src="../vistas/dist/js/dataTables-data.js"></script>
 </body>
+
 </html>

@@ -21,6 +21,8 @@ COMPARTIDO Y LIBERADO CON FINES ACADEMICOS
 session_start();
 // CONEXION DE SISTEMA CRM -> IMPORTANDO ARCHIVO
 require('../modelos/conexion.php');
+require('../modelos/mMateriasEstudiantes.php');
+$Usuarios = new MateriasEstudiante();
 // ACC -> ACCION CONTROLADOR {URL} 
 if(isset($_GET['acc']))
 {
@@ -56,6 +58,7 @@ switch ($accion)
 			{
 				header ('location:../vistas/AdministracionAdmin.php?acc=1');
 			}elseif($login['Tipo usuario']== 'Estudiante'){
+				//$consulta = $Usuarios->ConsultarMateriasEstudiante($cnn, $_SESSION['vsCedula']);
 				header ('location:../vistas/usuarios/PrincipalUsuarios.php?acc=1');	
 			}
 		}
