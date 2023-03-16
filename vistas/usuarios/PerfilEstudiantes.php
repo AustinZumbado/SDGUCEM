@@ -183,7 +183,7 @@ if (!isset($_SESSION['vsCodigo'])) {
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
                                             <a class="nav-link" target="_blank"
-                                                href="../Controlador/cGestionarReportesClientes.php?acc=reportecartaestudiante">Carta
+                                                href="../controlador/cGestionarReportesClientes.php?acc=reportecartaestudiante">Carta
                                                 Estudiante Activo</a>
                                         </li>
                                         <!--
