@@ -186,7 +186,7 @@ $MateriasPendientes = NumeroCursosPendientesEstudiante($cnn3, $_SESSION['vsCedul
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
                                             <a class="nav-link" target="_blank"
-                                                href="../controlador/cGestionarReportesClientes.php?acc=reportecartaestudiante">Carta
+                                                href="../../controlador/cGestionarReportesClientes.php?acc=reportecartaestudiante">Carta
                                                 Estudiante Activo</a>
                                         </li>
                                         <!--
@@ -293,7 +293,6 @@ $MateriasPendientes = NumeroCursosPendientesEstudiante($cnn3, $_SESSION['vsCedul
                     <div class="col-xl-12">
                         <div class="hk-row">
                             <div class="col-lg-12">
-
                                 <div class="hk-row">
                                     <div class="col-sm-6">
                                         <div class="card card-sm">

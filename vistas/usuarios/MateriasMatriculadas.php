@@ -65,7 +65,8 @@ if ($_SESSION['vsTipo'] == "Administrativo") {
             <a id="navbar_toggle_btn" class="navbar-toggle-btn nav-link-hover" href="javascript:void(0);"><span
                     class="feather-icon"><i data-feather="menu"></i></span></a>
             <a class="navbar-brand font-weight-700" href="../vistas/usuarios/PrincipalUsuarios.php?acc=1">
-                <img src="../vistas/dist/img/logoUCEM1.png" width="80" height="60" class="d-inline-block align-top" alt="">
+                <img src="../vistas/dist/img/logoUCEM1.png" width="80" height="60" class="d-inline-block align-top"
+                    alt="">
             </a>
             <ul class="navbar-nav hk-navbar-content">
                 <!-- BUSCADOR 
@@ -182,7 +183,7 @@ if ($_SESSION['vsTipo'] == "Administrativo") {
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
                                             <a class="nav-link" target="_blank"
-                                                href="../controlador/cGestionarReportesClientes.php?acc=reportecartaestudiante">Carta
+                                                href="../../controlador/cGestionarReportesClientes.php?acc=reportecartaestudiante">Carta
                                                 Estudiante Activo</a>
                                         </li>
                                         <!--
@@ -336,15 +337,6 @@ if ($_SESSION['vsTipo'] == "Administrativo") {
             </div>
             <!-- /Container -->
             <!-- Footer -->
-            <div class="hk-footer-wrap container">
-                <footer class="footer">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-12">
-                            <p>&copy; Copyright 2020 | CRM VTiger S.A de C.V</p>
-                        </div>
-                    </div>
-                </footer>
-            </div>
             <!-- /Footer -->
         </div>
         <!-- /Main Content -->

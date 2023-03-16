@@ -182,7 +182,7 @@ if ($_SESSION['vsTipo'] == "Administrativo") {
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
                                             <a class="nav-link" target="_blank"
-                                                href="../controlador/cGestionarReportesClientes.php?acc=reportecartaestudiante">Carta
+                                                href="../../controlador/cGestionarReportesClientes.php?acc=reportecartaestudiante">Carta
                                                 Estudiante Activo</a>
                                         </li>
                                         <!--
@@ -342,15 +342,6 @@ if ($_SESSION['vsTipo'] == "Administrativo") {
             </div>
             <!-- /Container -->
             <!-- Footer -->
-            <div class="hk-footer-wrap container">
-                <footer class="footer">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-12">
-                            <p>&copy; Copyright 2020 | CRM VTiger S.A de C.V</p>
-                        </div>
-                    </div>
-                </footer>
-            </div>
             <!-- /Footer -->
         </div>
         <!-- /Main Content -->
