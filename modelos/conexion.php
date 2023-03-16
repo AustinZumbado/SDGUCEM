@@ -53,7 +53,7 @@ class conexion
 	// USUARIOS PRIVILEGIOS ADMINISTRADORES
 	public function login($cnn,$Usuario,$Pass)
 	{
-		$resultado=mysqli_query($cnn,"CALL ucemdb.ValidarLogin('$Usuario','$Pass');");
+		$resultado=mysqli_query($cnn,"CALL ucemdb.ValidarLogin('".$Usuario."','".$Pass."');");
 		return $resultado;
 	}
 

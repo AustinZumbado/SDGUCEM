@@ -21,8 +21,6 @@ COMPARTIDO Y LIBERADO CON FINES ACADEMICOS
 session_start();
 // CONEXION DE SISTEMA CRM -> IMPORTANDO ARCHIVO
 require('../modelos/conexion.php');
-require('../modelos/mMateriasEstudiantes.php');
-$Usuarios = new MateriasEstudiante();
 // ACC -> ACCION CONTROLADOR {URL} 
 if(isset($_GET['acc']))
 {
@@ -44,41 +42,20 @@ switch ($accion)
 		if($login)
 		{
 			// INICIALIZANDO VARIABLES DE SESION
-			if (isset($login['Nombre'])) {
-				$_SESSION['vsNombre'] = $login['Nombre']; // NOMBRE
-			}
-			if (isset($login['Apellidos'])) {
-				$_SESSION['vsApellidos'] = $login['Apellidos']; // APELLIDOS
-			}
-			if (isset($login['Nombre Carrera'])) {
-				$_SESSION['vsCarrera'] = $login['Nombre Carrera']; //CARRERA
-			}
-			if (isset($login['Correo electronico'])) {
-				$_SESSION['vsCorreoElectronico'] = $login['Correo electronico']; // CORREO ELECTRONICO
-			}
-			if (isset($login['Cedula'])) {
-				$_SESSION['vsCedula'] = $login['Cedula']; // CEDULA
-			}
-			if (isset($login['Tipo usuario'])) {
-				$_SESSION['vsTipo'] = $login['Tipo usuario']; // TIPO DE USUARIO {ROL}
-			}
-			if (isset($login['Estado'])) {
-				$_SESSION['vsEstado'] = $login['Estado']; // TIPO DE USUARIO {ROL}
-			}
-			if (isset($login['ID'])) {
-				$_SESSION['vsCodigo'] = $login['ID']; // ID
-			}
-			if (isset($login['Codigo'])) {
-				$_SESSION['vsCodigoUser'] = $login['Codigo']; // CODIGO
-			}
-			if (isset($login['fotoPerfil'])) {
-				$_SESSION['vsFotosPerfilesUs']=$login['fotoPerfil']; // FOTO DE PERFIL
-			}
-			if($login['tipoUser']=='Administrativo')
+			$_SESSION['vsNombre'] = $login['Nombre']; // NOMBRE
+			$_SESSION['vsApellidos'] = $login['Apellidos']; // APELLIDOS
+			$_SESSION['vsCarrera'] = $login['Nombre Carrera']; //CARRERA
+			$_SESSION['vsCorreoElectronico'] = $login['Correo electronico']; // CORREO ELECTRONICO
+			$_SESSION['vsCedula'] = $login['Cedula']; // CEDULA
+			$_SESSION['vsTipo'] = $login['Tipo usuario']; // TIPO DE USUARIO {ROL}
+			$_SESSION['vsEstado'] = $login['Estado']; // TIPO DE USUARIO {ROL}
+			$_SESSION['vsCodigo'] = $login['ID']; // ID
+			$_SESSION['vsCodigoUser'] = $login['Codigo']; // CODIGO
+			$_SESSION['vsFotosPerfilesUs']=$login['Foto perfil']; // FOTO DE PERFIL 
+			if($login['Tipo usuario']=='Administrativo')
 			{
 				header ('location:../vistas/AdministracionAdmin.php?acc=1');
-			}elseif($login['tipoUser']== 'Estudiante'){
-				//$consulta = $Usuarios->ConsultarMateriasEstudiante($cnn, $_SESSION['vsCedula']);
+			}elseif($login['Tipo usuario']== 'Estudiante'){
 				header ('location:../vistas/usuarios/PrincipalUsuarios.php?acc=1');	
 			}
 		}
