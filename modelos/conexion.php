@@ -21,9 +21,9 @@
 */
 class conexion
 {
-	private $servidor="localhost:3307";
-	private $usuario="root";
-	private $clave="";
+	private $servidor="51.222.14.197";
+	private $usuario="ucem-reg";
+	private $clave="Ml7,7B3LxLI@d88ZXC8swn";
 	private $base="ucemdb";
 	public $conex;
 
